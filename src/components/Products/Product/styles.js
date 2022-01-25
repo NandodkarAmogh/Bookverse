@@ -1,6 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+const LINES_TO_SHOW = 6;
 export default makeStyles(() => ({
+  
   root: {
     // maxWidth: 345, original width style
     maxWidth: '100%',
@@ -17,4 +19,11 @@ export default makeStyles(() => ({
     display: 'flex',
     justifyContent: 'space-between',
   },
+  multiLineEllipsis: {
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "-webkit-box",
+    "-webkit-line-clamp": LINES_TO_SHOW,
+    "-webkit-box-orient": "vertical"
+  }
 }));
