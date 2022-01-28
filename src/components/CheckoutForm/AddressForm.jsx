@@ -27,7 +27,7 @@ const AddressForm = ( {checkoutToken, next}) => {
       console.log(countries);
 
       setShippingCountries(countries);
-      setShippingCountry(Object.keys(countries))
+      setShippingCountry(Object.keys(countries)[0])
     }
 
     const fetchSubdivisions = async (countryCode) => {
@@ -75,7 +75,7 @@ const AddressForm = ( {checkoutToken, next}) => {
               <FormInput name="zip" label='ZIP / Postal code' />
               <Grid item xs={12} sm={6}>
                 <InputLabel>Shipping Country</InputLabel>
-                <Select  value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
+                <Select required value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>
                   {countries.map((country) => (
                     <MenuItem value={country.id} key={country.id}>
                       {country.label}
@@ -85,7 +85,7 @@ const AddressForm = ( {checkoutToken, next}) => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <InputLabel>Shipping Subdivision</InputLabel>
-                <Select  value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
+                <Select required  value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>
                   {subdivisions.map((subdivision) => (
                     <MenuItem value={subdivision.id} key={subdivision.id}>
                       {subdivision.label}
@@ -95,7 +95,7 @@ const AddressForm = ( {checkoutToken, next}) => {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <InputLabel>Shipping Options</InputLabel>
-                <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
+                <Select  value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>
                   {options.map((option) => (
                     <MenuItem value={option.id} key={option.id}>
                       {option.label}
