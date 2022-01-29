@@ -19,7 +19,6 @@ const AddressForm = ( {checkoutToken, next}) => {
     const subdivisions = Object.entries(shippingSubdivisions).map(([code, name])=> ({ id: code, label: name}));
     const options = shippingOptions.map((sO) => ({ id: sO.id, label: `${sO.description} - (${sO.price.formatted_with_symbol})` }))
 
-    // console.log(subdivisions)
 
     const fetchShippingCountries = async (checkoutTokenId) => {
       const { countries } =await commerce.services.localeListShippingCountries(checkoutTokenId);

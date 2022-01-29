@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Ecommerce App using React JS and Commerce.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+- [Overview](#overview)
+  - [Demo](#demo)
+  - [Screenshot](#screenshot)
+    - [Desktop](#desktop)
+    - [Mobile](#mobile)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+If you love reading books then Bookverse is for you. Here you can find all the top best selling books which can be shipped to your location. 
+### Demo
 
-### `npm test`
+![](./src/images/demo2.gif)
+![](./src/images/demo1.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot
 
-### `npm run build`
+#### Desktop
+![](./src/images/desktop1.png)
+![](./src/images/desktop2.png)
+![](./src/images/desktop3.png)
+![](./src/images/desktop4.png)
+![](./src/images/desktop5.png)
+![](./src/images/desktop6.png)
+![](./src/images/desktop7.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Mobile
+![](./src/images/mobile1.png)
+![](./src/images/mobile2.png)
+![](./src/images/mobile3.png)
+![](./src/images/mobile4.png)
+![](./src/images/mobile5.png)
+![](./src/images/mobile6.png)
+![](./src/images/mobile7.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Links
 
-### `npm run eject`
+- Solution URL: []()
+- Live Site URL: []()
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## My process
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Built with
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [React Router](https://reactrouter.com/) 
+- [Commerce.js](https://commercejs.com/) - Headless CMS
+- [Material UI](https://mui.com/) - For styles
+### What I learned
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This is my first project in which I worked with Commerce.js. This project helped me in revising some of the core react concepts like react hooks and router. 
 
-## Learn More
+```react
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    const navigate = useNavigate();
+    const classes = useStyles();
+    const [activeStep, setActiveStep] = useState(0);
+    const [shippingData, setShippingData] = useState(0);
+    const [checkoutToken, setCheckoutToken] = useState({});
+    const [ isFinished, setIsFinished ] = useState(false)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    useEffect (() => {
+        const generateToken = async () => {
+            try {
+                const token = await commerce.checkout.generateToken(cart.id, { type: 'cart'});
+                console.log(token);
 
-### Code Splitting
+                setCheckoutToken(token);
+            } catch (error) {
+                navigate('/');
+            }
+        }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+        generateToken();
+    },[cart]);
 
-### Analyzing the Bundle Size
+    const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1 );
+    const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1 );
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    const next = (data) => {
+        setShippingData(data);
 
-### Making a Progressive Web App
+        nextStep();
+    }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    const timeout = () => {
+        setTimeout(() => {
+            setIsFinished(true)
+        }, 3000)
+    }
+```
+## Author
 
-### Advanced Configuration
+- Github - [@NandodkarAmogh](https://github.com/NandodkarAmogh)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

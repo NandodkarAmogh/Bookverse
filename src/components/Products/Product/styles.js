@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const LINES_TO_SHOW = 6;
+const LINES_TO_SHOW = 4;
 export default makeStyles(() => ({
   
   root: {

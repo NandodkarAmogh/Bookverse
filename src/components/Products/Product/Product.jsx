@@ -17,16 +17,12 @@ const Product = ({product, onAddToCart}) => {
                         {product.name}
                     </Typography>
                 <div className={classes.cardContent}>
-                    {/* <Typography variant='h5' gutterBottom>
-                        {product.name}
-                    </Typography> */}
-                    <Typography variant='h7'>
+                    <Typography variant='subtitle1'>
                         {product.price.formatted_with_symbol}
                     </Typography>
-                    <Typography variant='h7'>
+                    <Typography variant='subtitle1'>
                         {product.sku}
                     </Typography>
-                    {/* <Typography dangerouslySetInnerHTML = {{ __html: product.description}} variant='body2' color='textSecondary' /> */}
                 </div>
                 <div className={classes.multiLineEllipsis}>
                     <Typography dangerouslySetInnerHTML = {{ __html: product.description}} variant='body2' color='textSecondary' />
