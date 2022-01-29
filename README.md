@@ -46,8 +46,8 @@ If you love reading books then Bookverse is for you. Here you can find all the t
 
 ### Links
 
-- Solution URL: []()
-- Live Site URL: []()
+- Solution URL: [https://github.com/NandodkarAmogh/Bookverse#demo](https://github.com/NandodkarAmogh/Bookverse#demo)
+- Live Site URL: [https://boookverse.netlify.app/](https://boookverse.netlify.app/)
 
 ## My process
 
